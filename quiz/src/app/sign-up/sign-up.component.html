@@ -1,0 +1,83 @@
+<body>
+<h1> Create Your Account</h1>
+<section class="vh-100">
+  <div class="container-fluid h-custom" >
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-md-9 col-lg-6 col-xl-5">
+        <img src="..\assets\3.jpg" style="max-width: 75%; max-height: 75%;" class="img-fluid" alt="Sample image">
+      </div>
+      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
+        <form>
+
+          <div class="form-outline mb-3">
+            <select id="dropdown" class="form-select form-control" (change)="changeEvent_role($event)">
+              <option disabled selected>Select Role</option>  
+                <option>Student</option>               
+                <option>Teacher</option>               
+            </select>
+            
+          </div>
+          <div class="form-outline mb-3">
+            <input type="text" id="form3Example4" class="form-control "
+              placeholder="Enter your name" #name />
+          </div>
+          <div *ngIf="role=='Student'">
+            <select style="margin-bottom: 15px;" id="dropdown" placeholder="Select your class" class="form-control  form-select" (change)="changeEvent_class($event)">
+              <option disabled selected>Select your class</option>  
+                <option>1</option>               
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>               
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+            </select>
+          </div>
+          <div *ngIf="role=='Teacher'">
+            <select style="margin-bottom: 15px;" id="dropdown" class="form-control  form-select" (change)="changeEvent_subject($event)">
+              <option disabled selected>Select your Subject</option>  
+                <option>Hindi</option>               
+                <option>English</option>
+                <option>Maths</option>
+                <option>Science</option>               
+                <option>Social Science</option>
+            </select>
+          </div>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="form3Example3" class="form-control "
+              placeholder="Enter a valid email address" #email />
+
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <input type="password" id="form3Example4" class="form-control " placeholder="Enter password (At least 6 letters)"
+              #password />
+          </div>
+          
+
+          
+           <div class="text-center text-lg-start mt-4 pt-2"> 
+            <button type="button" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;"
+              (click)="onSignup(email.value,password.value,name.value);">Register</button>
+              {{errorMsg}}
+              <div *ngIf="errorMsg" class="alert alert-danger message_warning" style="margin: 10px;" role="alert">
+                <span class="closebtn" (click)="reload()">&times;</span>
+                {{errorMsg}}
+              </div>
+
+              
+           </div>
+
+            
+
+        </form>
+      </div>
+    </div>
+  </div>
+
+</section>
+</body>

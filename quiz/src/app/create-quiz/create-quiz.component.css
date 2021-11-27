@@ -1,0 +1,55 @@
+.option
+{
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    margin: 10px;
+    width: 200px;
+}
+.btn
+{
+    margin: 10px;
+}
+h1
+{
+    text-decoration-line: underline;
+    
+    font-size: calc(1.375rem + 1.5vw);
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+
+}
+body, html {
+    height: 100%;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  .bg-img {
+    /* The image used */
+    background-image: url("../../assets/Quiz_files/7.jpg");
+  
+    /* Control the height of the image */
+    min-height: 500px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  
+  /* Add styles to the form container */
+  .container {
+    position: absolute;
+    right: 30%;
+    margin-top: 3%;
+    max-width: 500px;
+    padding: 10px;
+    background-color: #b8b4b4;
+    height: fit-content;
+
+  }
+  

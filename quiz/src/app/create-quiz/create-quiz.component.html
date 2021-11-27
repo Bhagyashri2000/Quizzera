@@ -1,0 +1,144 @@
+<body>
+    <h1>Design your Quiz</h1>
+    <div class="bg-img">
+            <form class="container" >
+                <select style="margin-bottom: 15px;" id="dropdown" placeholder="Select class" class="form-control  form-select" (change)="changeEvent_type($event)">
+                    <option disabled selected>Select the type of exam for which you are designing this quiz</option>  
+                      <option>Quarterly Exam</option>               
+                      <option>Half-Yearly Exam</option>
+                      <option>Annual Exam</option>
+                      <option>Practice</option>               
+                  </select>          
+                <select style="margin-bottom: 15px;" id="dropdown" placeholder="Select class" class="form-control  form-select" (change)="changeEvent_class($event)">
+                  <option disabled selected>Select the class for which you are designing this quiz</option>  
+                    <option>1</option>               
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>               
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                </select>
+              <select style="margin-bottom: 15px;" id="dropdown" class="form-control  form-select" (change)="changeEvent_subject($event)">
+                  <option disabled selected>Select the Subject for quiz</option>  
+                    <option>Hindi</option>               
+                    <option>English</option>
+                    <option>Maths</option>
+                    <option>Science</option>               
+                    <option>Social Science</option>
+                </select>
+    
+              
+              <div class="form-outline mb-4">
+                <input type="number" id="pos_marks" class="form-control "
+                  placeholder="Marks for right ans" #pos_marks />
+    
+              </div>
+              <div class="form-outline mb-4">
+                <input type="number" id="neg_marks" class="form-control "
+                  placeholder="Negative Marks for wrong ans" #neg_marks />
+    
+              </div>
+              <div class="form-outline mb-4" *ngIf="examType=='Quarterly Exam' || examType=='Half-Yearly Exam' ||
+               examType=='Annual Exam'">
+                <input #code type="text" id="code" class="form-control "
+                  placeholder="Exam Code"  />
+    
+              </div>
+               <div class="text-center text-lg-start mt-4 pt-2"> 
+                <button type="button" class="btn btn-primary" style="float:right;"
+                  (click)=" addQuestion(pos_marks,neg_marks)">Add Question in Quiz</button>
+                  
+               </div>
+    
+    
+            </form>
+        </div>
+</body>
+<!-- <button (click)="addQuestion()">Add Question</button> -->
+<div bsModal #addQuestionModal="bs-modal" class="modal fade" [config]="{backdrop: 'static'}" tabindex="-1" role="dialog"
+    aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-body text-center" style="color: #196f77;">
+                <!-- (ngSubmit)="onSubmit()" -->
+                <form [formGroup]="quizForm">
+                    <div class="form-group" style="display:inline;">
+                        <label for="que">Enter the Question: </label>
+                        <input #que type="text" class="form-control" placeholder="Enter the Question" id="que"
+                            formControlName="que" [ngClass]="{ 'is-invalid': submitted && f.que.errors }">
+                        <div *ngIf="submitted && f.que.errors" class="invalid-feedback">
+                            <div *ngIf="f.que.errors.required">Question is required</div>
+                        </div>
+                    </div>
+                    <select style="margin: 1px;" id="dropdown" placeholder="Select class" class="form-control  form-select"
+                     (change)="changeEvent_skill($event)">
+                        <option disabled selected>Select skill tag for this question</option>  
+                          <option>Complex Problem Solving </option>               
+                          <option>Critical Thinking</option>
+                          <option>Reading Comprehension</option>
+                          <option>Chronological Understanding</option>               
+                          <option>Knowledge and Understanding of Events</option>
+                          <option>Other</option>
+                      </select>
+                      <input #otherSkill type="text" *ngIf="other" class="form-control" placeholder="Enter the Skill tag" id="skill"
+                            formControlName="skill" [ngClass]="{ 'is-invalid': submitted && f.que.errors }">
+                    <div class="form-group">
+                        <label for="op1">Option 1: </label>
+                        <input #op1 type="text" class="option" placeholder="Option 1" id="op1"
+                            formControlName="op1" [ngClass]="{ 'is-invalid': submitted && f.op1.errors }">
+                            <input id="ans" formControlName="ans" (change)="fieldsChange($event)" value="1" type="radio" /><br>
+
+                        <div *ngIf="submitted && f.op1.errors" class="invalid-feedback">
+                            <div *ngIf="f.op1.errors.required">Option 1 is required</div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="op2">Option 2: </label>
+                        <input #op2 type="text" class="option" placeholder="Option 2" id="op2"
+                            formControlName="op2" [ngClass]="{ 'is-invalid': submitted && f.op2.errors }">
+                            <input  formControlName="ans" (change)="fieldsChange($event)" value="2" type="radio" /><br>
+                        <div *ngIf="submitted && f.op2.errors" class="invalid-feedback">
+                            <div *ngIf="f.op2.errors.required">Option 2 is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="op3">Option 3: </label>
+                        <input #op3 type="text" class="option" placeholder="Option 3" id="op3"
+                            formControlName="op3" [ngClass]="{ 'is-invalid': submitted && f.op3.errors }">
+                            <input  formControlName="ans" (change)="fieldsChange($event)" value="3" type="radio" /><br>
+
+                        <div *ngIf="submitted && f.op3.errors" class="invalid-feedback">
+                            <div *ngIf="f.op3.errors.required">Option 3 is required</div>
+                        </div>
+                    </div>
+                   
+                    <div class="form-group">
+                        <label for="op4">Option 4: </label>
+                        <input #op4 type="text" class="option" placeholder="Option 4" id="op4"
+                            formControlName="op4" [ngClass]="{ 'is-invalid': submitted && f.op4.errors }">
+                            <input  formControlName="ans" (change)="fieldsChange($event)" value="4" type="radio" /><br>
+
+                        <div *ngIf="submitted && f.op4.errors" class="invalid-feedback">
+                            <div *ngIf="f.op4.errors.required">Option 4 is required</div>
+                        </div>
+                    </div>
+                    
+
+                    <button type="submit" class="btn btn-primary"(click)="addAnotherQuestion(que,op1,op2,op3,op4); reset()">
+                        Add this Question to quiz</button><br>
+                    <button  class="btn btn-primary" (click)="onSubmit()" >Post Quiz</button>
+                    <!-- <button  (click)="reset()" class="btn btn-primary mb-3">Submit</button> -->
+                </form>
+                <div class="alert alert-info" *ngIf="showSuccessmsg">
+                    Question Added Successfully
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+

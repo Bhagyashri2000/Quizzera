@@ -1,0 +1,27 @@
+.bg-img {
+    /* The image used */
+    background-image: url("D:/engage/quiz/src/assets/Quiz_files/20.jpg");
+  
+    /* Control the height of the image */
+    min-height: 500px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  .bg-modal {
+    /* The image used */
+    background-image: url("../../assets/Quiz_files/21.png");
+  
+    /* Control the height of the image */
+    min-height: 500px;
+  
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+  }
+  

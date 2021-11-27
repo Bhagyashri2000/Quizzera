@@ -1,0 +1,64 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="">Home</a>
+      <a class="nav-item nav-link" routerLink="createQuiz">Create Quiz</a>
+      <!-- <a class="nav-item nav-link" routerLink="studentLogin">Student's Login</a> -->
+
+    </div>
+
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="nav-link btn btn btn-secondary"
+            style="color: white; margin-right: 10px;line-height: normal; size: 5px;" (click)="logout()">Sign
+            Out</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="bg-img">
+
+  <marquee direction="right" height="100%" width="100%">Welcome to Quizzera Prof
+    <span style="font-style: italic;">{{teacher_name}} ({{subject}}) </span></marquee>
+  <div class="btns">
+
+  <button class="btn btn-primary button" style="margin-left: 20%;" (click)="getStudentMarks(); ShowMarks()">Get Student Marks</button>
+</div>
+
+  <ul *ngFor="let m of studentMarks1 | keyvalue">
+    Class {{m.key}}:
+    <ul *ngFor="let i of m.value|keyvalue">
+      <li *ngFor="let j of i.value|keyvalue">
+          {{j.key}} : {{j.value}}
+      </li>
+      <br> ------------------------------<br>
+
+
+    </ul>
+  </ul>
+
+  <table class="table table-striped table-bordered" *ngIf="showStudent">
+    <thead>
+      <th>Class 1</th>
+      <th>Class 2</th>
+      <th>Class 3</th>
+      <th>Class 4</th>
+      <th>Class 5</th>
+      <th>Class 6</th>
+      <th>Class 7</th>
+      <th>Class 8</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of studentMarks">
+        <td>Name: {{i.name}}</td>
+
+      </tr>
+    </tbody>
+  </table>
+  
+</div>
+
+        

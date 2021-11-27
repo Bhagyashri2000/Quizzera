@@ -1,0 +1,71 @@
+<div class="bg-img">
+<div class="container">
+    <div class="row">
+        <div class="col-sm-8 offset-2">
+            <p class="text-center" style="color:white;" *ngIf="currentQue!=questions.length">{{currentQue+1}} of {{questions.length}}</p>
+          <h2 style="color: white;">{{questions[currentQue].que}}</h2>
+          <p style="color:aliceblue;">Correct: (+{{questions[currentQue].pos}} marks) 
+            <span *ngIf="questions[currentQue].neg!=0"> Inorrect: (-{{questions[currentQue].neg}} marks)</span><p>
+          <h5 style="color: white;background: cadetblue;">This question will evaluate you on 
+            <span style="color: antiquewhite; font-style: italic;"> {{questions[currentQue].tag}} </span></h5>
+          <ul class="list-group">
+              <li class="list-group-item" style="background-color: gainsboro;">
+                <input id="radio" type="radio" name="ans" value="1" (change)="fieldChange($event)">
+                {{questions[currentQue].op1}}</li>
+              <li class="list-group-item">
+                <input type="radio" name="ans" value="2" (change)="fieldChange($event)">
+                {{questions[currentQue].op2}}</li>
+              <li class="list-group-item" style="background-color: gainsboro;">
+                <input type="radio" name="ans" value="3" (change)="fieldChange($event)">
+                  {{questions[currentQue].op3}}</li>
+              <li class="list-group-item">
+                <input type="radio" name="ans" value="4" (change)="fieldChange($event)">
+                  {{questions[currentQue].op4}}</li>
+          </ul>
+          <button class="btn btn-primary" (click)="previous()" style="float: left; margin: 10px;">Previous</button>
+          <button class="btn btn-primary" (click)="next()" style="float: right; margin: 10px;">Next</button>
+          <button class="btn btn-success" style="margin-left: 30%;margin-top: 10%;" (click)="submit()" *ngIf="currentQue==questions.length-1">Submit</button>
+
+        </div>
+    </div>
+</div>
+</div>
+
+<div 
+  class="modal"
+  tabindex="-1"
+  role="dialog"
+  [ngStyle]="{'display':displayStyle}">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h4 class="modal-title">Quiz Result</h4>
+      </div>
+      <div class="modal-body">
+        <p>Total Marks: {{totalMarks}} / {{outOf}} </p>
+
+        <ul>
+          <span style="color: red;"> Incorrect Questions:</span>
+          <li *ngFor="let i of wrongQues">
+            <span style="color: blue;">Que:</span> {{i.que}}<br>
+            <span style="color: green;">Correct Ans:</span> {{i.ans}}
+          </li>
+        </ul>
+
+        <ul>
+          <span style="color: blue;"> Marks distribution according to skills</span>
+          <li *ngFor="let tag of skillTag | keyvalue">
+            {{tag.key}} --> {{tag.value}}
+          </li>
+        </ul>
+  
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" 
+                (click)="closePopup()">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,72 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav">
+      <a class="nav-item nav-link" routerLink="">Home</a>
+
+      <!-- <a class="nav-item nav-link" routerLink="studentLogin">Student's Login</a> -->
+    </div>
+    <div ngbDropdown class="d-inline-block nav-item nav-link">
+      <button class="btn btn-outline-primary nav-item nav-link" id="dropdownBasic1"  ngbDropdownToggle>Take Quiz</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <li *ngFor="let subj of subjects">
+          <button class="btn" style="width: -webkit-fill-available; background-color: white;"
+            (click)="showPopup(subj)">{{subj}}</button>
+          <!-- postCurrentQuiz(subj) -->
+        </li>
+        <!-- <button class="dropdown-item">{{subj}}</button> -->
+      </div>
+    </div>
+    <div class="collapse navbar-collapse justify-content-end" id="navbarCollapse">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <button class="nav-link btn btn btn-secondary"
+            style="color: white; margin-right: 10px;line-height: normal; size: 5px;"
+            (click)="logout()">Sign Out</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<div class="bg-img">
+  <marquee direction="right" height="100%" width="100%">Welcome to Quizzera Prof
+    <span style="font-style: italic;">{{student_name}} (Class: {{_class}}) </span></marquee>
+  <div class="btns">
+
+
+
+  <div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':displayStyle}">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Choose the type of Quiz you want to attempt</h5>
+        </div>
+        <p style="color: blue; text-align: center;"> *Password for Practice quiz is "Practice"</p>
+
+        <div class="modal-body">
+          <div>
+            
+          Quarterly Exam
+          <input style="margin-left:10px" formControlName="type" (change)="fieldsChange($event)" value="Quarterly Exam"
+            type="radio" />
+          </div>
+          Half-Yearly Exam <input style="margin-left:10px" formControlName="type" (change)="fieldsChange($event)" value="Half-Yearly Exam"
+            type="radio" /><br>
+          Annual Exam <input style="margin-left:10px" formControlName="type" (change)="fieldsChange($event)" value="Annual Exam" type="radio" /><br>
+          Practice <input style="margin-left:10px" formControlName="type" (change)="fieldsChange($event)" value="Practice" type="radio" /><br>
+          <br>
+          <input #code type="text" id="code" class="form-control " placeholder="Enter Exam Code" />
+
+
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-primary" style="width: -webkit-fill-available;" (click)="postCurrentQuiz()">Start
+            Quiz</button>
+
+          <button type="button" class="btn btn-danger" (click)="closePopup()">
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

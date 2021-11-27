@@ -1,0 +1,38 @@
+h1
+{
+    text-decoration-line: underline;
+    
+    font-size: calc(1.375rem + 1.5vw);
+    padding: 10px;
+    text-align: center;
+    font-style: italic;
+
+}
+body {
+    overflow: hidden; /* Hide scrollbars */
+    overflow-y: hidden;  
+}
+.message_warning
+  {
+    padding: 20px;
+    background-color: #f44336;
+    color: white;
+    position: fixed;
+    margin: 10px;
+    top: 0;
+    left: 40%;
+  }
+  .closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  .closebtn:hover {
+    color: black;
+  }
