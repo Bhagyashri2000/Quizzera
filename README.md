@@ -22,17 +22,17 @@ Now you can ready to go
 **Step 8:** Open your browser and type: http://localhost:4200
 
 # Project Credentials
-Teacher Login: 
+# Teacher Login: <br />
 Email-id- **teacher1@gmail.com**
-password- **123456**
+password- **123456**<br />
 
 Email-id- **teacher2@gmail.com**
-password- **123456**
+password- **123456**<br />
 
 Email-id- **teacher3@gmail.com**
-password- **123456**
+password- **123456**<br />
 
-Student Login: 
+# Student Login: <br />
 Email-id- **student1@gmail.com**
 password- **123456**
 
@@ -43,7 +43,7 @@ Email-id- **student3@gmail.com**
 password- **123456**
 
 Passcode to take exams:
-**123456**
+**123456** <br />
 Passcode to take practice quiz:
 **Practice**
 
