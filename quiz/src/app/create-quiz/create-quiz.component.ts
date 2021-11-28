@@ -74,7 +74,7 @@ export class CreateQuizComponent implements OnInit {
   }
   addAnotherQuestion(que,op1,op2,op3,op4){
     if(this.skill=='Other')
-      this.skill=this.otherSkill;
+      this.skill=this.otherSkill.nativeElement.value;
     this.quiz_quesions.push({
       q_no:this.que_no,
       que:que.value,

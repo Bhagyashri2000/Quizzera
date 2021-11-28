@@ -82,8 +82,9 @@
                           <option>Knowledge and Understanding of Events</option>
                           <option>Other</option>
                       </select>
-                      <input #otherSkill type="text" *ngIf="other" class="form-control" placeholder="Enter the Skill tag" id="skill"
-                            formControlName="skill" [ngClass]="{ 'is-invalid': submitted && f.que.errors }">
+                      
+                            <input #otherSkill type="text"  *ngIf="other" id="otherSkill" class="form-control "
+                  placeholder="Enter the Skill tag"  />
                     <div class="form-group">
                         <label for="op1">Option 1: </label>
                         <input #op1 type="text" class="option" placeholder="Option 1" id="op1"
