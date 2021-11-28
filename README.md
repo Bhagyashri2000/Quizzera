@@ -42,14 +42,12 @@ password- **123456**
 Email-id- **student3@gmail.com**
 password- **123456**
 
-<br />
 Email-id- **student4@gmail.com**
 password- **123456**
 
-<br />
 Email-id- **student5@gmail.com**
 password- **123456**
-<br />
+
 Email-id- **student6@gmail.com**
 password- **123456**
 
