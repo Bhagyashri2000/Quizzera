@@ -17,7 +17,7 @@ Quizzera helps Teachers to create the quizzes,customize the marks and can add sk
 **Step 7:** Run command:   ``` npx ng serve ```
 
 
-Now you can ready to go 
+Now you are ready to go 
 
 **Step 8:** Open your browser and type: http://localhost:4200
 
