@@ -1,6 +1,6 @@
 .bg-img {
     /* The image used */
-    background-image: url("D:/engage/quiz/src/assets/Quiz_files/20.jpg");
+    background-image: url("../../assets/Quiz_files/20.jpg");
   
     /* Control the height of the image */
     min-height: 500px;

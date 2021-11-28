@@ -28,7 +28,7 @@
   </div>
 </nav>
 <div class="bg-img">
-  <marquee direction="right" height="100%" width="100%">Welcome to Quizzera Prof
+  <marquee direction="right" height="100%" width="100%">Welcome to Quizzera 
     <span style="font-style: italic;">{{student_name}} (Class: {{_class}}) </span></marquee>
   <div class="btns">
 
@@ -46,13 +46,13 @@
           <div>
             
           Quarterly Exam
-          <input style="margin-left:10px" formControlName="type" (change)="fieldsChange($event)" value="Quarterly Exam"
+          <input style="margin-left:10px" name="type" formControlName="type" (change)="fieldsChange($event)" value="Quarterly Exam"
             type="radio" />
           </div>
-          Half-Yearly Exam <input style="margin-left:10px" formControlName="type" (change)="fieldsChange($event)" value="Half-Yearly Exam"
+          Half-Yearly Exam <input style="margin-left:10px" name="type" formControlName="type" (change)="fieldsChange($event)" value="Half-Yearly Exam"
             type="radio" /><br>
-          Annual Exam <input style="margin-left:10px" formControlName="type" (change)="fieldsChange($event)" value="Annual Exam" type="radio" /><br>
-          Practice <input style="margin-left:10px" formControlName="type" (change)="fieldsChange($event)" value="Practice" type="radio" /><br>
+          Annual Exam <input style="margin-left:10px" name="type" formControlName="type" (change)="fieldsChange($event)" value="Annual Exam" type="radio" /><br>
+          Practice <input style="margin-left:10px" name="type" formControlName="type" (change)="fieldsChange($event)" value="Practice" type="radio" /><br>
           <br>
           <input #code type="text" id="code" class="form-control " placeholder="Enter Exam Code" />
 
